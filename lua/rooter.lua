@@ -17,13 +17,19 @@ function findLast(haystack, needle)
     if i==nil then return nil else return i-1 end
 end
 
+function parent_dir(dir)
+  return dir:sub(1, findLast(dir, '/')-1)
+end
+
+term_pattern = parent_dir(os.getenv('HOME'))
+
 function _G.__root_dir(prefix, cwd)
-  if prefix:sub(1,5) ~= '/home' then
+  if not prefix:find(term_pattern) then
     return cwd
   end
   possible_root_dir = prefix
   found = false
-	while prefix ~= '/home' do
+	while prefix ~= term_pattern do
 		for _, dir in ipairs(vim.g.rooter_pattern) do
 			if file_exists(prefix .. '/' .. dir) then
         found = true
@@ -34,7 +40,7 @@ function _G.__root_dir(prefix, cwd)
         break
 			end
 		end
-    prefix = prefix:sub(1, findLast(prefix, '/')-1)
+    prefix = parent_dir(prefix)
 	end
   if found then
     return possible_root_dir
