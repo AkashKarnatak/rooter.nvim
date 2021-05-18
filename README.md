@@ -3,7 +3,7 @@
 identifies a directory as project root if it contains any of the file or folder specified
 in `vim.g.rooter_pattern`. `rooter.nvim` triggers every time the buffer changes.
 
-This plugin works only on linux.
+Although this plugin has been tested only on linux, but it should work for all Unix based OS.
 
 ## Customization
 `rooter.nvim` provides you with two options.
