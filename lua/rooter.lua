@@ -1,7 +1,7 @@
-if vim.g.rooter_pattern == nil then
+if vim.g.rooter_pattern == vim.NIL then
   vim.g.rooter_pattern = {'.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt'}
 end
-if vim.g.outermost_root == nil then
+if vim.g.outermost_root == vim.NIL then
   vim.g.outermost_root = true
 end
 
