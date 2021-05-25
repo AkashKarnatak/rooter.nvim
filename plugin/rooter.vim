@@ -4,11 +4,11 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 if ! exists('g:rooter_pattern')
-    let g:rooter_pattern = v:null
+    let g:rooter_pattern = ['.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt'] 
 endif
 
 if ! exists('g:outermost_root')
-    let g:outermost_root = v:null
+    let g:outermost_root = v:true
 endif
 
 lua require'rooter'
