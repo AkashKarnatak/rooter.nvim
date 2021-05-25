@@ -17,7 +17,7 @@ end
 term_pattern = parent_dir(os.getenv('HOME'))
 
 function _G.__root_dir(prefix, cwd)
-  if not prefix:find(term_pattern) then
+  if not (prefix:find(term_pattern) == 1) then
     return cwd
   end
   possible_root_dir = prefix
