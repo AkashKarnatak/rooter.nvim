@@ -21,5 +21,8 @@ vim.g.rooter_pattern = {'.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'no
 vim.g.outermost_root = true
 ```
 
+## Updates
+* Added support for `nvim-tree`.
+
 ## Bugs
 Patterns like `*.sln` does not work as of now.
