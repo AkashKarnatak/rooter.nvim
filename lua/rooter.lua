@@ -43,7 +43,8 @@ function _G.__root_dir(prefix, cwd)
 end
 
 if vim.fn.exists('g:loaded_tree') and vim.g.loaded_tree then
-  vim.cmd([[autocmd BufEnter * exe "lua require'nvim-tree.lib'.change_dir(_G.__root_dir(vim.fn.expand('%:p:h'), vim.fn.getcwd()))"]])
+  vim.cmd('autocmd VimEnter * exe "cd " .. v:lua.__root_dir(expand(\'%:p:h\'), getcwd())')
+  vim.cmd([[autocmd VimEnter * autocmd BufEnter * exe "lua vim.api.nvim_set_current_dir(_G.__root_dir(vim.fn.expand('%:p:h'), vim.fn.getcwd()))" | exe "lua require'nvim-tree.lib'.change_dir(_G.__root_dir(vim.fn.expand('%:p:h'), vim.fn.getcwd()))"]])
 else
   vim.cmd('autocmd BufEnter * exe "cd " .. v:lua.__root_dir(expand(\'%:p:h\'), getcwd())')
 end
