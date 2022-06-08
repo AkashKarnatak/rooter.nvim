@@ -1,3 +1,5 @@
+## NOTE: This repository is no longer maintained. Check out [project.nvim](https://github.com/ahmedkhalf/project.nvim)
+
 ## rooter.nvim
 `rooter.nvim` changes current working directory to project root of the file opened in current buffer. It
 identifies a directory as project root if it contains any of the file or folder specified
